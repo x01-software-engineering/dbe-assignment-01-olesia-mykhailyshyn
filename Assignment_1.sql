@@ -3,46 +3,46 @@ USE BEAUTY_SALON_Department;
 
 CREATE TABLE Services (
                           service_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                          name VARCHAR(255) NOT NULL,
-                          description VARCHAR(255),
+                          name VARCHAR(256) NOT NULL,
+                          description VARCHAR(256),
                           duration INT,
-                          price DECIMAL(10, 2) NOT NULL
+                          price INT NOT NULL
 );
 
 CREATE TABLE Products (
                           product_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
                           service_id INT NOT NULL,
-                          name VARCHAR(255) NOT NULL,
-                          description VARCHAR(255),
+                          name VARCHAR(256) NOT NULL,
+                          description VARCHAR(256),
                           quantity INT,
-                          price DECIMAL(10, 2) NOT NULL,
+                          price INT NOT NULL,
                           FOREIGN KEY (service_id) REFERENCES Services(service_id)
 );
 
 CREATE TABLE Customers (
                            customer_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                           name VARCHAR(255) NOT NULL,
-                           phone_number VARCHAR(20) NOT NULL,
-                           email VARCHAR(255),
-                           address VARCHAR(255)
+                           name VARCHAR(256) NOT NULL,
+                           phone_number VARCHAR(32) NOT NULL,
+                           email VARCHAR(256),
+                           address VARCHAR(256)
 );
 
 CREATE TABLE Payments (
                           payment_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
                           customer_id INT NOT NULL,
-                          amount DECIMAL(10, 2) NOT NULL,
-                          method VARCHAR(255) NOT NULL,
+                          amount INT NOT NULL,
+                          method VARCHAR(256) NOT NULL,
                           date DATE NOT NULL,
                           FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 CREATE TABLE Employees (
                            employee_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                           name VARCHAR(255) NOT NULL,
-                           phone_number VARCHAR(20) NOT NULL,
-                           email VARCHAR(255) NOT NULL,
-                           position VARCHAR(255) NOT NULL,
-                           salary DECIMAL(10, 2) NOT NULL
+                           name VARCHAR(256) NOT NULL,
+                           phone_number VARCHAR(32) NOT NULL,
+                           email VARCHAR(256) NOT NULL,
+                           position VARCHAR(256) NOT NULL,
+                           salary INT NOT NULL
 );
 
 CREATE TABLE Appointments (
@@ -52,7 +52,7 @@ CREATE TABLE Appointments (
                               employee_id INT NOT NULL,
                               date DATE NOT NULL,
                               time TIME,
-                              status VARCHAR(255),
+                              status VARCHAR(256),
                               FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
                               FOREIGN KEY (service_id) REFERENCES Services(service_id),
                               FOREIGN KEY (employee_id) REFERENCES Employees(employee_id)
@@ -122,7 +122,7 @@ FROM Customers c
          JOIN Payments p ON c.customer_id = p.customer_id
 GROUP BY c.customer_id
 ORDER BY total_amount DESC
-    LIMIT 3;
+LIMIT 3;
 
 -- Find customers who have made card payments and spent more than 30 currency units
 SELECT c.name, SUM(p.amount) AS total_amount

@@ -2,5 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/300925e9-b4fc-4129-8271-8eaa753d748f/console.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/insert_customers.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/script.py" dialect="MySQL" />
   </component>
 </project>

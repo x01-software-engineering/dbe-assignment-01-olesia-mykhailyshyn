@@ -1,4 +1,4 @@
-import random
+ import random
 
 # Configuration
 NUM_CUSTOMERS = 1000000  # Змініть на бажану кількість клієнтів
@@ -19,7 +19,7 @@ def generate_customer_inserts():
                 row = f"('{name}', '{phone_number}', '{email}', '{address}')"
                 file.write(row)
                 if customer_id < chunk_end:
-                    file.write(",\n\t")
+                    file.write(",\n\t") 
             file.write(";\n\n")
 
 generate_customer_inserts()

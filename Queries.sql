@@ -39,7 +39,7 @@ WHERE s.service_id NOT IN (SELECT service_id
 SELECT e.name, e.position, e.salary
 FROM employee e
 WHERE e.salary >= 3000.00
-  AND EXISTS (SELECT 1
+  AND EXISTS (SELECT *
               FROM service
               WHERE duration = 60);
 
@@ -47,11 +47,10 @@ WHERE e.salary >= 3000.00
 -- Employees who do not have confirmed service appointments
 SELECT e.name, e.position, e.salary
 FROM employee e
-WHERE NOT EXISTS (SELECT 1
+WHERE NOT EXISTS (SELECT *
                   FROM appointment a
                            JOIN service s ON a.service_id = s.service_id
-                  WHERE a.employee_id = e.employee_id
-                    AND a.status = 'Confirmed');
+                  WHERE a.status = 'Confirmed');
 
 -- = with correlated 
 -- retrieve services that have appointments confirmed with the same service and employee
@@ -85,7 +84,7 @@ WHERE s.service_id NOT IN (SELECT a.service_id
 -- retrieve services with confirmed appointments by the same employee and current or future date
 SELECT *
 FROM service s
-WHERE EXISTS (SELECT 1
+WHERE EXISTS (SELECT *
               FROM appointment a
               WHERE a.service_id = s.service_id
                 AND a.employee_id = s.service_id
@@ -96,7 +95,7 @@ WHERE EXISTS (SELECT 1
 -- retrieve services without confirmed appointments by the same employee and current or future date
 SELECT *
 FROM service s
-WHERE NOT EXISTS (SELECT 1
+WHERE NOT EXISTS (SELECT *
                   FROM appointment a
                   WHERE a.service_id = s.service_id
                     AND a.employee_id = s.service_id
@@ -106,7 +105,7 @@ WHERE NOT EXISTS (SELECT 1
 -- UPDATE queries:
 
 -- = with non-correlated
--- -- Update query setting the price of services based on the maximum confirmed appointment price
+-- Update query setting the price of services based on the maximum confirmed appointment price
 UPDATE service
 SET price = 40.00
 WHERE service_id = (SELECT a.service_id
@@ -141,7 +140,7 @@ WHERE service_id NOT IN (SELECT service_id
 -- Update query adjusting the salary of employees based on their position and the existence of appointments
 UPDATE employee
 SET salary = salary * 1.1
-WHERE EXISTS (SELECT 1
+WHERE EXISTS (SELECT *
               FROM appointment
               WHERE appointment.employee_id = employee.employee_id)
   AND position = 'Stylist';
@@ -151,7 +150,7 @@ WHERE EXISTS (SELECT 1
 UPDATE employee
 SET position = 'Senior Stylist'
 WHERE salary > 3500
-  AND NOT EXISTS (SELECT 1
+  AND NOT EXISTS (SELECT *
                   FROM appointment
                   WHERE appointment.employee_id = employee.employee_id
                     AND appointment.status = 'Confirmed');
@@ -177,7 +176,7 @@ WHERE s.service_id IN (SELECT service_id
 -- NOT IN with correlated
 -- Update query setting the price of services based on a condition related to appointment status and service ID
 UPDATE service s
-SET price = 40.00
+SET price = 100.00
 WHERE s.service_id NOT IN (SELECT service_id
                            FROM appointment
                            WHERE employee_id = s.service_id
@@ -187,7 +186,7 @@ WHERE s.service_id NOT IN (SELECT service_id
 -- Update query setting the price of services based on a condition related to appointment status and service ID
 UPDATE service s
 SET price = 40.00
-WHERE EXISTS (SELECT 1
+WHERE EXISTS (SELECT *
               FROM appointment
               WHERE employee_id = s.service_id
                 AND status = 'Confirmed');
@@ -196,7 +195,7 @@ WHERE EXISTS (SELECT 1
 -- Update query setting the price of services based on a condition related to appointment status and service ID
 UPDATE service s
 SET price = 50.00
-WHERE NOT EXISTS (SELECT 1
+WHERE NOT EXISTS (SELECT *
                   FROM appointment
                   WHERE employee_id = s.service_id
                     AND status = 'Not Confirmed');
@@ -240,7 +239,7 @@ WHERE service_id NOT IN (SELECT service_id
 -- Selects employee names and positions where appointments exist for them with status 'Confirmed'
 SELECT e.name, e.position
 FROM employee e
-WHERE EXISTS (SELECT 1
+WHERE EXISTS (SELECT *
               FROM appointment a
               WHERE a.employee_id = e.employee_id
                 AND a.status = 'Confirmed');
@@ -251,7 +250,7 @@ WHERE EXISTS (SELECT 1
 DELETE
 FROM employee
 WHERE position = 'Stylist'
-  AND NOT EXISTS (SELECT 1
+  AND NOT EXISTS (SELECT *
                   FROM appointment a
                   WHERE a.employee_id = employee.employee_id
                     AND a.status = 'Confirmed');
@@ -295,7 +294,7 @@ WHERE a.service_id NOT IN (SELECT DISTINCT service_id
 -- Deletes appointments where the service duration exceeds the average duration of all services
 DELETE
 FROM appointment
-WHERE EXISTS (SELECT 1
+WHERE EXISTS (SELECT *
               FROM service s
               WHERE s.service_id = appointment.service_id
                 AND s.duration > (SELECT AVG(duration)

@@ -1,4 +1,4 @@
- import random
+import random
 
 # Configuration
 NUM_CUSTOMERS = 1000000  # Змініть на бажану кількість клієнтів

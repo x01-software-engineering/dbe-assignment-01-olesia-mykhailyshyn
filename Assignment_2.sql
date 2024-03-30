@@ -353,9 +353,3 @@ WHERE name LIKE 'Customer290';
 SELECT COUNT(*)
 FROM customer_clone;
 -- Checking the count to ensure data population
-
-
--- Seek Operation (Пошук): Відбувається, коли база даних використовує індекс, щоб швидко знайти рядки, які відповідають умові запиту. 
--- Це може бути позначено як "Index Seek" у виведенні EXPLAIN ANALYZE.
--- Scan Operation (Прогляд): Відбувається, коли база даних переглядає всі рядки в таблиці для пошуку тих, що відповідають умові запиту. 
--- Це може бути позначено як "Index Scan" (якщо використовується індекс) або "Full Table Scan" (якщо індекс не використовується) у виведенні EXPLAIN ANALYZE.

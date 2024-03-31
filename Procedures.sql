@@ -32,11 +32,11 @@ END;
 
 -- calculating the average salary of employees in a specified department for a certain month and year
 DROP PROCEDURE IF EXISTS CalculateDepartmentAverageSalary;
+
 CREATE PROCEDURE CalculateDepartmentAverageSalary(
-    IN department_name VARCHAR(256),
+    INOUT department_name VARCHAR(256),
     IN month INT,
     IN year INT,
-    OUT department_name_out VARCHAR(256),
     OUT average_salary INT
 )
 BEGIN
@@ -65,8 +65,8 @@ BEGIN
         SET average_salary = 0;
     END IF;
 
-    -- setting the output values
-    SET department_name_out = department_name;
+    -- updating the department name with the modified value
+    SET department_name = CONCAT('Updated ', department_name);
 END;
 
 
@@ -76,5 +76,3 @@ CALL CountEmployeesByPosition('Stylist');
 CALL CalculateEmployeeRevenue('Alice Johnson', 2, 2024, @employee_name, @revenue);
 SELECT @employee_name AS EmployeeName, @revenue AS TotalRevenue;
 
-CALL CalculateDepartmentAverageSalary('Stylist', 2, 2024, @deptName, @avgSalary);
-SELECT @deptName AS DepartmentName, @avgSalary AS AverageSalary;

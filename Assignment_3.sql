@@ -227,10 +227,10 @@ VALUES ('Alice Johnson', '11123333', 'alice@example.com', 'Stylist', 3000.00),
 INSERT INTO appointment (appointment_id, customer_id, service_id, employee_id, date, time, status)
 VALUES (1, 1, 1, 1, '2024-02-25', '10:00:00', 'Confirmed'),
        (2, 2, 2, 2, '2024-02-24', '11:00:00', 'Confirmed'),
-       (3, 3, 3, 3, '2024-02-26', '12:00:00', 'Confirmed'),
-       (4, 4, 4, 4, '2024-02-27', '13:00:00', 'Confirmed'),
-       (5, 5, 5, 5, '2024-02-28', '14:00:00', 'Confirmed'),
-       (6, 6, 6, 6, '2024-02-29', '15:00:00', 'Confirmed');
+       (3, 3, 3, 3, '2024-02-25', '12:00:00', 'Confirmed'),
+       (4, 4, 4, 4, '2024-02-25', '13:00:00', 'Confirmed'),
+       (5, 5, 5, 5, '2024-02-25', '14:00:00', 'Confirmed'),
+       (6, 6, 6, 6, '2024-02-25', '15:00:00', 'Confirmed');
 
 INSERT INTO service_product (service_id, product_id)
 VALUES (1, 1),
@@ -260,10 +260,10 @@ ALTER TABLE customer
 INSERT INTO payment (payment_id, appointment_id, customer_id, amount, method, date)
 VALUES (1, 1, 1, 30, 'Credit Card', '2024-02-25'),
        (2, 2, 2034, 25, 'Debit Card', '2024-02-24'),
-       (3, 3, 1761, 60, 'Cash', '2024-02-26'),
-       (4, 4, 13721, 35, 'Credit Card', '2024-02-27'),
-       (5, 5, 2005, 40, 'Debit Card', '2024-02-28'),
-       (6, 6, 13769, 50, 'Cash', '2024-02-29');
+       (3, 3, 1761, 60, 'Cash', '2024-02-25'),
+       (4, 4, 13721, 35, 'Credit Card', '2024-02-25'),
+       (5, 5, 2005, 40, 'Debit Card', '2024-02-25'),
+       (6, 6, 13769, 50, 'Cash', '2024-02-25');
 
 INSERT INTO appointment_employee (appointment_id, employee_id)
 VALUES (1, 3),
@@ -272,3 +272,29 @@ VALUES (1, 3),
        (4, 4),
        (5, 1),
        (6, 6);
+
+
+-- FOR ASSIGNMENT 5
+-- Generate additional data for the customer table
+INSERT INTO customer (name, phone_number, email, address)
+VALUES ('John Doe', '1234567890', 'john.doe@example.com', '123 Main St'),
+       ('Jane Smith', '9876543210', 'jane.smith@example.com', '456 Elm St'),
+       ('Alice Johnson', '5551234567', 'alice.johnson@example.com', '789 Oak St');
+
+-- Generate additional data for the employee table
+INSERT INTO employee (name, phone_number, email, position, salary)
+VALUES ('Mark Davis', '5559876543', 'mark.davis@example.com', 'Esthetician', 3200.00),
+       ('Emily Wilson', '5554443333', 'emily.wilson@example.com', 'Massage Therapist', 3500.00),
+       ('Michael Brown', '5552223333', 'michael.brown@example.com', 'Stylist', 3000.00);
+
+-- Generate additional data for the appointment table
+INSERT INTO appointment (customer_id, service_id, employee_id, date, time, status)
+VALUES (1, 7, 2, '2024-02-25', '10:00:00', 'Confirmed'),
+       (2, 8, 1, '2024-02-25', '11:00:00', 'Confirmed'),
+       (3, 9, 3, '2024-02-25', '12:00:00', 'Confirmed');
+
+-- Generate additional data for the payment table
+INSERT INTO payment (appointment_id, customer_id, amount, method, date)
+VALUES (7, 1, 40, 'Credit Card', '2024-02-25'),
+       (8, 2, 50, 'Debit Card', '2024-02-25'),
+       (9, 3, 60, 'Cash', '2024-02-25');

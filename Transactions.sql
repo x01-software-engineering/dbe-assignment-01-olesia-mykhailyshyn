@@ -50,9 +50,9 @@ BEGIN
     SELECT service.service_id INTO service_id FROM service WHERE name = service_name LIMIT 1;
     SELECT employee.employee_id INTO employee_id FROM employee WHERE name = employee_name LIMIT 1;
 
-    CALL CheckEmployeeAvailability(employee_id, available);
 
     START TRANSACTION;
+    CALL CheckEmployeeAvailability(employee_id, available);
     IF NOT available THEN
         SET message = 'Employee is already booked for another service.';
         ROLLBACK;

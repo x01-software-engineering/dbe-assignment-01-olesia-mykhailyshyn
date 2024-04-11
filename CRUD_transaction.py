@@ -12,6 +12,7 @@ database = mysql.connector.connect(
 def schedule_service(customer_name, service_name, employee_name, date, time):
     try:
         with database.cursor() as cursor:
+            database.start_transaction()
             # call procedure to check employee availability
             cursor.callproc("CheckEmployeeAvailability", (employee_name, '@is_available'))
             for result in cursor.stored_results():

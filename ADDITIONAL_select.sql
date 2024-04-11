@@ -1,10 +1,8 @@
 ﻿-- EMPLOYEE METRICS QUERY 
 
 CREATE INDEX idx_appointment_employee ON appointment_employee (employee_id, appointment_id);
-CREATE INDEX idx_appointment_appointment_id ON appointment (appointment_id);
 CREATE INDEX idx_appointment_employee_id ON appointment (employee_id);
 CREATE INDEX idx_payment_appointment_id ON payment (appointment_id);
-CREATE INDEX idx_employee_employee_id ON employee (employee_id);
 
 -- select query to fetch employee metrics
 SELECT e.name AS employee_name,

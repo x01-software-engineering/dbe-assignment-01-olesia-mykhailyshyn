@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="844700d6-57b9-42bc-9648-eec1de1c6d95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/View.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADDITIONAL_select.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ADDITIONAL_select.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD_transaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/CRUD_transaction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View.sql" beforeDir="false" afterPath="$PROJECT_DIR$/View.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,25 +26,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.CRUD.executor": "Run",
-    "Python.CRUD_transaction.executor": "Run",
-    "Python.script.executor": "Run",
-    "Python.script_connection.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/aya24/Downloads/Telegram Desktop",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.CRUD.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CRUD_transaction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.script.executor&quot;: &quot;Run&quot;,
+    &quot;Python.script_connection.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/aya24/Downloads/Telegram Desktop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -66,6 +67,8 @@
       <workItem from="1711991776456" duration="348000" />
       <workItem from="1712392021136" duration="677000" />
       <workItem from="1712392730980" duration="4499000" />
+      <workItem from="1712819593723" duration="841000" />
+      <workItem from="1712822628152" duration="641000" />
     </task>
     <servers />
   </component>

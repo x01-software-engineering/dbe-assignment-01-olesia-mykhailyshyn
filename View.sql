@@ -1,7 +1,5 @@
 ﻿CREATE INDEX idx_appointment_employee_id ON appointment (employee_id);
 CREATE INDEX idx_appointment_service_id ON appointment (service_id);
-CREATE INDEX idx_employee_employee_id ON employee (employee_id);
-CREATE INDEX idx_service_service_id ON service (service_id);
 CREATE INDEX idx_appointment_date ON appointment (date);
 
 -- Recreate the view with optimized indexing
@@ -21,3 +19,4 @@ ORDER BY appointment_count DESC;
 
 SELECT *
 FROM employee_schedule_day;
+
